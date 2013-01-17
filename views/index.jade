@@ -1,0 +1,10 @@
+include layout
+script(type='text/javascript', src='http://code.jquery.com/jquery.min.js')
+script(type='text/javascript', src='javascripts/client.js')
+div(id='parent')
+  div(id='landing')
+    form(method='', action='', id='inputform')
+      label(for='keyword') Search Query: 
+      input(type='text', size='40', id='keyword', name='keyword') 
+      input(type='submit', id='submit', value='Search');
+  div(id='content')
