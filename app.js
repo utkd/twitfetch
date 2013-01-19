@@ -1,6 +1,6 @@
 var express = require('express');
 var twitter = require('twitter');
-var twitkeys = require('keys').keys;
+var twitkeys = require('./keys').keys;
 
 var twitobj = new twitter(twitkeys);
 
@@ -11,6 +11,7 @@ app.configure(function(){
 
 	app.use(app.routes);
 	app.use(express.static(__dirname + '/public'));
+	app.use(express.bodyParser());
 
 	app.set('views', __dirname + '/views');
 	app.set('view engine', 'jade');
@@ -33,8 +34,17 @@ app.get('/', function(request, response){
 	response.redirect('/index')	;
 });
 
-app.get('/index', fucntion(request, response){
+app.get('/index', function(request, response){
 	response.render('index', {
 		pagetitle: 'Content Home'
 	});
 });
+
+app.get('/tweets', function(request,response){
+	var keyword = request.query["keyword"];
+	console.log("User searched for: " + keyword);
+	
+	twitobj.search(keyword, function(data){
+		response.json(data);
+	});
+});	
