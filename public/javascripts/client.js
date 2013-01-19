@@ -4,11 +4,18 @@ $(function(){
  	var userkeyword = $('input#keyword').val();
 
 	$.get("/tweets", 
-		{keyword: userkeyword}, 
+		{ keyword: userkeyword }, 
 		function(data){
-			$('div#content').text(JSON.stringify(data));
+			var contentDiv = $('div#content')
+			contentDiv.empty();
+			var tweetArray = data.tweets;
+			for(var idx in tweetArray) {
+				contentDiv.append('<p>' + tweetArray[idx] + '</p>');
+			}
 		},
 		"json"
 	);
-  });
+  })
 });
+
+

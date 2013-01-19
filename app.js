@@ -30,21 +30,31 @@ app.configure('production', function(){
 
 app.listen(8000);
 
-app.get('/', function(request, response){
+app.get('/', function(request, response) {
 	response.redirect('/index')	;
 });
 
-app.get('/index', function(request, response){
+app.get('/index', function(request, response) {
 	response.render('index', {
 		pagetitle: 'Content Home'
 	});
 });
 
-app.get('/tweets', function(request,response){
+app.get('/tweets', function(request,response) {
 	var keyword = request.query["keyword"];
 	console.log("User searched for: " + keyword);
 	
 	twitobj.search(keyword, function(data){
-		response.json(data);
+		var tweetsArray = parseData(data);
+		response.json({tweets: tweetsArray});
 	});
 });	
+
+function parseData(json){
+	var tweets = json.results;
+	var textArray = [];
+	for(var idx in tweets) {
+		textArray.push(tweets[idx].text);
+	}
+	return textArray;
+}
