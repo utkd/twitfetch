@@ -1,6 +1,26 @@
-#parent{
-  margin: 20px;
+#landing {
+  padding: 5px;
+  margin: 5px;
+  border-radius: 10px;
+  background: #8ae234;
+}
+
+.inputform {
   padding: 10px;
-  width: 100%;
-  background: #ddd;
+  text-align: center;
+}
+
+input {
+  margin-left: 10px;
+}
+
+label {
+  margin-left: -50px;
+}
+
+.result-tweet {
+  margin: 5px 30px;
+  padding: 5px;
+  border-radius: 5px;
+  background: #bbf;
 }

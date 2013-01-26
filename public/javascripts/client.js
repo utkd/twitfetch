@@ -10,7 +10,7 @@ $(function(){
 			contentDiv.empty();
 			var tweetArray = data.tweets;
 			for(var idx in tweetArray) {
-				contentDiv.append('<p>' + tweetArray[idx] + '</p>');
+				contentDiv.append("<div class='result-tweet'>" + tweetArray[idx] + "</div>");
 			}
 		},
 		"json"
