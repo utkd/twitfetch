@@ -1,4 +1,4 @@
 twitfetch
 =========
 
-Test app to fetch tweets
+Test app to fetch tweets. Using twitter npm module

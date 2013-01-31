@@ -1,10 +1,11 @@
 include layout
 script(type='text/javascript', src='http://code.jquery.com/jquery.min.js')
 script(type='text/javascript', src='javascripts/client.js')
-div(id='parent')
-  div(id='landing')
-    form(method='', action='', id='inputform')
-      label(for='keyword') Search Query: 
-      input(type='text', size='40', id='keyword', name='keyword') 
-      input(type='submit', id='search', value='Search');
-  div(id='content')
+div(class='row-fluid')
+  div(id='parent', class='span8 offset2')
+    div(id='landing')
+      form(method='', action='', id='inputform', class='form-search inputform')
+        label(for='keyword', class='label') Search Query: 
+        input(type='text', size='40', id='keyword', name='keyword', class='search-query') 
+        input(type='submit', id='search', value='Search', class='btn btn-info')
+    div(id='content')
